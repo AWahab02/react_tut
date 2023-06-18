@@ -1,5 +1,5 @@
 import './index.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './Header';
 import Content from './Content';
 import Content1 from './Content1';
@@ -12,11 +12,16 @@ import Colorbox from './Colorbox';
 function App() {
 
   const [newitem, setNewItem] = useState('');
-  const [items, setItem] = useState(JSON.parse(localStorage.getItem('shoppinglist')));
+  const [items, setItem] = useState(JSON.parse(localStorage.getItem('shoppinglist')) || []);
   const [search, setSearch] = useState('');
 
+  useEffect(() => {
+    console.log("use effect")
+    localStorage.setItem('shoppinglist', JSON.stringify(items));
+  }, [items])
+
 const addItem= (item) => {
-  const id = items[items.length-1].id+1;
+  const id = items.length? items[items.length-1].id+1: 1;
   const myNewItem = {
     id, checked: false, item
   }
@@ -66,8 +71,8 @@ const handledelete = (id) =>
   }
   return (
     <div className="App">
-      {
-      /* <Header title="Grocery List"/>
+      
+      <Header title="Grocery List"/>
       <AddItem 
       newitem = {newitem}
       handlesubmit={handlesubmit}
@@ -84,9 +89,8 @@ const handledelete = (id) =>
       />
       <Footer 
       length = {items.length}
-      /> */
-      
-      }
+      />
+      {/* 
       <Colorbox 
       challengeitem={challengeitem}
       setChallengeItem={setChallengeItem}
@@ -95,7 +99,7 @@ const handledelete = (id) =>
       <InputBox 
       challengeitem={challengeitem}
       setChallengeItem={setChallengeItem}
-      />
+      /> */}
     </div>
   ); 
 }
