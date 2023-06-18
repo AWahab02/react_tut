@@ -6,7 +6,8 @@ import Content1 from './Content1';
 import Footer from './Footer';
 import AddItem from './AddItem';
 import SearchItem from './SearchItem';
-
+import InputBox from './Challenge';
+import Colorbox from './Colorbox';
 
 function App() {
 
@@ -38,6 +39,7 @@ const handlesubmit = (e) => {
   setNewItem('');
 }
 
+const [challengeitem, setChallengeItem] = useState('');
 
 const handlecheck = (id) => {
     const listitems = items.map((item) => item.id === id ? {
@@ -64,7 +66,8 @@ const handledelete = (id) =>
   }
   return (
     <div className="App">
-      <Header title="Grocery List"/>
+      {
+      /* <Header title="Grocery List"/>
       <AddItem 
       newitem = {newitem}
       handlesubmit={handlesubmit}
@@ -81,6 +84,17 @@ const handledelete = (id) =>
       />
       <Footer 
       length = {items.length}
+      /> */
+      
+      }
+      <Colorbox 
+      challengeitem={challengeitem}
+      setChallengeItem={setChallengeItem}
+      />
+
+      <InputBox 
+      challengeitem={challengeitem}
+      setChallengeItem={setChallengeItem}
       />
     </div>
   ); 

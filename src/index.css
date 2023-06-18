@@ -131,6 +131,7 @@ ul li::before {
   left: -99999px;
 }
 
+
 .addForm input[type='text'] {
   flex-grow: 1;
   max-width: calc(100% - 50px);
@@ -140,6 +141,30 @@ ul li::before {
   border-radius: 0.25rem;
   margin-right: 0.25rem;
   outline: none;
+}
+
+
+.Colorbox
+{
+  margin-top: 200px;
+  margin-bottom: 20px;
+  height: 300px;
+  width: 300px;
+  border-radius: 0.25rem;
+  border: 2px solid black;
+}
+
+.challenge
+{
+  border-radius: 0.25rem;
+  height: 40px;
+  width: 300px;  
+}
+
+.colorboxtext
+{
+  margin-top: 125px;
+  text-align: center;
 }
 
 button {
